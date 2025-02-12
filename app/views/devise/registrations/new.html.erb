@@ -1,0 +1,57 @@
+<body class="bg-gray-100">
+  <div class="h-screen flex flex-col items-center justify-center">
+    <div class="items-center min-w-0 md:min-w-[28rem] min-h-[640px]">
+      <h2 class="flex font-semibold justify-center p-4 text-3xl">Sign up</h2>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'rounded-lg flex flex-col justify-start gap-2 m-4 p-8 shadow-md border-1 border-gray-300 min-h-[450px]' }) do |f| %>
+        
+        <div class="flex flex-col gap-2 m-2">
+          <%= f.label :email, class: 'text-xl font-medium' %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500' %>
+        </div>
+        
+        <div class="flex flex-col gap-2 m-2">
+          <%= f.label :first_name, class: 'text-xl font-medium' %>
+          <%= f.text_field :first_name, class: 'border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500' %>
+        </div>
+
+        <div class="flex flex-col gap-2 m-2">
+          <%= f.label :last_name, class: 'text-xl font-medium' %>
+          <%= f.text_field :last_name, class: 'border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500' %>
+        </div>
+
+        <div class="flex flex-col gap-2 m-2">
+          <%= f.label :dob, class: 'text-xl font-medium' %>
+          <%= f.date_field:dob, class: 'border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500' %>
+        </div>
+
+        <div class="flex flex-col gap-2 m-2">
+          <%= f.label :gender, class: 'text-xl font-medium' %>
+          <%= f.select :gender, ['Male', 'Female', 'Other'], {}, class: 'border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500' %>
+        </div>
+
+        <div class="flex flex-col gap-2 m-2">
+          <%= f.label :password, class: 'text-xl font-medium' %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "new-password", class: 'border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500' %>
+        </div>
+
+        <div class="flex flex-col gap-2 m-2">
+          <%= f.label :password_confirmation, class: 'text-xl font-medium' %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500' %>
+        </div>
+
+        <div class="flex flex-col gap-2 m-2">
+          <%= f.submit "Sign up", class: "w-full bg-blue-500 text-white py-2 rounded-md font-medium hover:bg-blue-600" %>
+        </div>
+
+      <% end %>
+
+      <div class="flex justify-center m-4 gap-1">
+        <span class="text-xl"> Already have an account? <a href="/users/sign_in" class="text-blue-500 font-medium hover:underline">Log in</a></span>
+      </div>
+    </div>
+  </div>
+</body>

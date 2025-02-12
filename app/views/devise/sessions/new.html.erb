@@ -1,0 +1,34 @@
+<body class="bg-gray-100">
+  <div class="h-screen flex flex-col 
+ items-center justify-center  ">
+    <div class="items-center min-w-0 md:min-w-[28rem] min-h-[640px]">
+      <h2 class="flex font-semibold justify-center p-4 text-3xl">Log in to your account</h2>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name,html: { class: 'rounded-lg flex flex-col justify-start gap-2 m-4 p-8 shadow-md border-1 border-gray-300 min-h-[450px]' }, url: session_path(resource_name)) do |f| %>
+        <div class="flex flex-col gap-2 m-2 ">
+          <%= f.label :email , class: 'text-xl font-medium'%>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email",class:'border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500' %>
+        </div>
+        <div class="flex flex-col gap-2 m-2">
+          <%= f.label :password, class: 'text-xl font-medium' %>
+          <%= f.password_field :password, autocomplete: "current-password",class:'border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500'%>
+        </div>
+        <% if devise_mapping.rememberable? %>
+          <div class="flex items-center m-2 gap-1">
+            <%= f.check_box :remember_me, class: 'rounded scale-120 mr-1 ml-1' %>
+            <%= f.label :remember_me, class: 'text-md font-normal' %>
+          </div>
+        <% end %>
+        <div class="flex flex-row m-2 justify-end">
+          <%= link_to "Forgot your password?", new_password_path(resource_name),class:"text-md font-medium text-blue-500 hover:underline" %><br />
+        </div>
+        <div class="flex flex-col gap-2 m-2">
+          <%= f.submit "Log in" ,class:"w-full bg-blue-500 text-white py-2 rounded-md font-medium hover:bg-blue-600"%>
+        </div>
+      <% end %>
+      <div class="flex justify-center m-4 gap-1">
+        <span class="text-xl"> Don't have an account? <a href="/users/sign_up" class="text-blue-500 font-medium hover:underline">Sign up</a></span>
+      </div>
+    </div>
+  </div>
+</body>

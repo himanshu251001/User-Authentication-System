@@ -10,10 +10,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [ :first_name, :last_name, :dob, :gender, :profile_picture ])
   end
   def after_sign_in_path_for(resource)
-    dashboard_path 
+    dashboard_path
   end
+
+  def after_sign_up_path_for(resource)
+    resource.admin? ? admin_dashboard_path : dashboard_path
+  end
+  
   def admin?
     role == "admin"
   end
-
 end

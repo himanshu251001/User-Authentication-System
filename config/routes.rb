@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     get "users/update"
     get "dashboard/index"
   end
-  devise_for :users, controllers: { sessions: "users/sessions" ,registrations: "users/registrations"}
+  devise_for :users,controllers: { sessions: "users/sessions" ,registrations: "users/registrations"}
   patch "dashboard/update_icon", to: "dashboard#update_icon", as: "update_icon"
 
   devise_scope :user do
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "dashboard", to: "dashboard#index"
-    resources :users, only: [:edit, :update]
+    resources :users
   end
   
   get "dashboard/edit_profile", to: "dashboard#edit", as: "edit_profile"

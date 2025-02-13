@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable,:confirmable
   has_one_attached :icon
   validates :first_name, presence: true, length: { minimum: 2, maximum: 20 }
   validates :last_name, presence: true, length: { minimum: 2, maximum: 20 }
@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :role, inclusion: { in: ["user", "admin"] }
 
   # Validate password only if required
-  validates :password, presence: true, length: { minimum: 6 }, if: :password_required?
+  validates :password, presence: true, confirmation: true, length: { minimum: 6 }, if: :password_required?
   validates :password, confirmation: true, if: :password_required?
 
   def update_without_password(params)

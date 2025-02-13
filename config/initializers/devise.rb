@@ -24,10 +24,10 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'no-reply@example.com'
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+  config.mailer = 'Devise::Mailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
@@ -311,5 +311,13 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
 
-  
+#   config.mailer = 'Devise::Mailer'
+# config.mailer.perform_deliveries = true
+# config.mailer.delivery_method = :smtp
+# config.mailer.perform_caching = false
+# config.mailer.queue_name = :default # Sidekiq queue
+
+  config.router_name = :main_app
+
+
 end

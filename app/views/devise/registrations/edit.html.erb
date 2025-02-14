@@ -2,7 +2,7 @@
   <div class="h-screen flex flex-col items-center justify-center">
     <div class="items-center min-w-0 md:min-w-[28rem] min-h-[640px]">
       <h2 class="flex font-semibold justify-center p-4 text-3xl">Edit Profile <%= resource_name.to_s.humanize %></h2>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'rounded-lg flex flex-col justify-start gap-2 m-4 p-8 shadow-md border-1 border-gray-300 min-h-[450px]' }) do |f| %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'rounded-lg flex flex-col justify-start gap-2 m-4 p-8 shadow-md border-1 border-gray-300 min-h-[450px] bg-white' }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         
         <div class="flex flex-col gap-2 m-2">

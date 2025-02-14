@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   # Validate password only if required
   validates :password, presence: true, confirmation: true, length: { minimum: 6 }, if: :password_required?
-  validates :password, confirmation: true, if: :password_required?
+  # validates :password, confirmation: true, if: :password_required?
 
   def update_without_password(params)
     params.except!(:current_password, :password, :password_confirmation)
@@ -23,6 +23,9 @@ class User < ApplicationRecord
   end
   private
 
+  # This method determines whether a password is required for the user. 
+  # It returns true if the user is a new record (i.e., being created), or if the password or password confirmation attributes are present.
+  #  This ensures that passwords are required during user creation and when updating the password.
   def password_required?
     new_record? || password.present? || password_confirmation.present?
   end

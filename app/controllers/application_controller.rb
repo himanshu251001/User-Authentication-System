@@ -5,19 +5,24 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   protected
+  # This method is called before any action to set up permitted parameters for account updates.
   def configure_permitted_parameters
+    # This method configures which parameters are permitted when updating a user's account.
     devise_parameter_sanitizer.permit(:sign_up, keys: [ :first_name, :last_name, :dob, :gender ])
     devise_parameter_sanitizer.permit(:account_update, keys: [ :first_name, :last_name, :dob, :gender, :profile_picture ])
   end
+
+  # This method is specifically called before the create action to set up permitted parameters for user sign-up.
   def after_sign_in_path_for(resource)
     dashboard_path
   end
+
 
   def after_sign_up_path_for(resource)
     resource.admin? ? admin_dashboard_path : dashboard_path
   end
   
-  def admin?
-    role == "admin"
-  end
+  # def admin?
+  #   role == "admin"
+  # end
 end

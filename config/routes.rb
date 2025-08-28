@@ -22,6 +22,5 @@ Rails.application.routes.draw do
   
   get "dashboard/edit_profile", to: "dashboard#edit", as: "edit_profile"
   patch "dashboard/update_profile", to: "dashboard#update", as: "update_profile"
-  get "dashboard", to: "dashboard#index"
-  
+  get "dashboard", to: "dashboard#index"  
 end

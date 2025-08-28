@@ -4,32 +4,26 @@
       <h2 class="flex font-semibold justify-center p-4 text-3xl">Edit Profile <%= resource_name.to_s.humanize %></h2>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'rounded-lg flex flex-col justify-start gap-2 m-4 p-8 shadow-md border-1 border-gray-300 min-h-[450px] bg-white' }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-        
         <div class="flex flex-col gap-2 m-2">
           <%= f.label :first_name, class: 'text-xl font-medium' %>
           <%= f.text_field :first_name, class: "border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
         </div>
-      
         <div class="flex flex-col gap-2 m-2">
           <%= f.label :last_name, class: 'text-xl font-medium' %>
           <%= f.text_field :last_name, class: "border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
         </div>
-      
         <div class="flex flex-col gap-2 m-2">
           <%= f.label :email, class: 'text-xl font-medium' %>
           <%= f.email_field :email, class: "border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
         </div>
-      
         <div class="flex flex-col gap-2 m-2">
           <%= f.label :dob, "Date of Birth", class: 'text-xl font-medium' %>
           <%= f.date_field :dob, class: "border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
         </div>
-      
         <div class="flex flex-col gap-2 m-2">
           <%= f.label :gender, class: 'text-xl font-medium' %>
           <%= f.select :gender, [["Male", "Male"], ["Female", "Female"], ["Other", "Other"]], {}, class: "border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
         </div>
-    
         <div class="flex flex-col items-center gap-2 m-2">
           <% if resource.icon.attached? %>
             <%= image_tag url_for(resource.icon), id: "image-preview", class: "rounded-md shadow-md", style: "width: 100px; height: 100px;" %>
@@ -38,12 +32,10 @@
           <% end %>
           <%= f.file_field :icon, accept: "image/*", class: "border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
         </div>
-      
         <div class="flex flex-col gap-2 m-2">
           <%= f.submit "Update", class: "w-full bg-blue-500 text-white py-2 rounded-md font-medium hover:bg-blue-600" %>
         </div>
       <% end %>
-      
       <div class="flex justify-center m-4 gap-1">
         <a href="<%= dashboard_path %>" class="text-xl text-blue-500 font-medium hover:underline">Cancel</a>
       </div>

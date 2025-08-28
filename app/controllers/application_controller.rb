@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     resource.admin? ? admin_dashboard_path : dashboard_path
   end
   
-  # def admin?
-  #   role == "admin"
-  # end
+  def admin?
+    role == "admin"
+  end
 end

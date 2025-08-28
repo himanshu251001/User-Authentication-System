@@ -4,16 +4,14 @@
       <h1 class="text-blue-900 text-4xl font-bold">Admin Dashboard</h1>
       <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: " text-center bg-red-500  text-white px-4 py-2 rounded-md font-medium hover:bg-red-600" %>
     </div>
-
     <div class="bg-white shadow-md rounded-lg p-6 relative">
       <div class="mb-4 flex justify-between">
         <%= link_to "Back to Dashboard", dashboard_path, class: "text-blue-500 font-medium hover:underline flex items-center" %>
         <%= button_to "Create", new_admin_user_path, method: :get, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-2 shadow-md" %>
       </div>
-    <!--  <h2 class="text-xl font-semibold text-center mb-4">User Statistics</h2> -->
-
+      <!--  <h2 class="text-xl font-semibold text-center mb-4">User Statistics</h2> -->
       <div class="overflow-x-auto">
-         <table class="w-full border-collapse border border-gray-300 shadow-md rounded-lg">
+        <table class="w-full border-collapse border border-gray-300 shadow-md rounded-lg">
           <thead>
             <tr class="bg-gray-200 text-gray-700">
               <th class="border border-gray-300 px-4 py-2">Total Users</th>
@@ -31,10 +29,9 @@
         </table>
       </div>
     </div>
-
     <div class="bg-white shadow-md rounded-lg p-6 mt-4">
       <div class="overflow-x-auto">
-      <table class="w-full border-collapse border border-gray-300 shadow-md rounded-lg">
+        <table class="w-full border-collapse border border-gray-300 shadow-md rounded-lg">
           <thead>
             <tr class="bg-gray-200 text-gray-700">
               <th class="border border-gray-300 px-4 py-2 text-center">Name</th>
@@ -45,19 +42,19 @@
           </thead>
           <tbody>
             <% @users.each do |user| %>
-            <% next if user == @current_user %>
-            <!-- Skip if the user is the current admin -->
-            <tr class="border border-gray-300 hover:bg-gray-100">
-              <td class="px-4 py-2 text-center"><%= user.first_name %> <%= user.last_name %></td>
-              <td class="px-4 py-2 text-center"><%= user.email %></td>
-              <td class="px-4 py-2 text-center"><%= user.role.capitalize %></td>
-              <td class="px-4 py-2 text-center">
-                <div class="flex justify-center">
-                  <%= button_to "Edit", edit_admin_user_path(user), method: :get, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-1 shadow-sm" %>
-                  <%= button_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-1 shadow-sm" %>
-                </div>
-              </td>
-            </tr>
+              <% next if user == @current_user %>
+              <!-- Skip if the user is the current admin -->
+              <tr class="border border-gray-300 hover:bg-gray-100">
+                <td class="px-4 py-2 text-center"><%= user.first_name %> <%= user.last_name %></td>
+                <td class="px-4 py-2 text-center"><%= user.email %></td>
+                <td class="px-4 py-2 text-center"><%= user.role.capitalize %></td>
+                <td class="px-4 py-2 text-center">
+                  <div class="flex justify-center">
+                    <%= button_to "Edit", edit_admin_user_path(user), method: :get, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-1 shadow-sm" %>
+                    <%= button_to "Delete", admin_user_path(user), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-1 shadow-sm" %>
+                  </div>
+                </td>
+              </tr>
             <% end %>
           </tbody>
         </table>

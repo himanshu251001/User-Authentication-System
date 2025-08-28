@@ -18,18 +18,17 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-     <% if flash[:alert] %>
--      <div class="bg-red-500 text-white px-4 py-2 "> <%= flash[:alert] %> </div>
+    <% if flash[:alert] %>
+      -      
+      <div class="bg-red-500 text-white px-4 py-2 "> <%= flash[:alert] %> </div>
     <% elsif flash[:error] %>
       <div class="bg-red-500 text-white px-4 py-2 "> <%= flash[:error] %> </div>
     <% end %>
     <% if user_signed_in? && current_user.admin? && request.fullpath != admin_dashboard_path %>
       <div class="flex justify-end mx-4 my-2">
-         <%= button_to "Admin Dashboard", admin_dashboard_path, method: :get ,data: { turbo_method: :delete }, class:" text-center bg-blue-600  text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 flex justify-end mb-2" %>
+        <%= button_to "Admin Dashboard", admin_dashboard_path, method: :get ,data: { turbo_method: :delete }, class:" text-center bg-blue-600  text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 flex justify-end mb-2" %>
       </div>
     <% end %>
     <%= yield %>
   </body>
 </html>
-
-

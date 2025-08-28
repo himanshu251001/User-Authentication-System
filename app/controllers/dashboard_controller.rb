@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
     @user=current_user
     end
 
-    def update_icon
+     def update_icon
       if current_user.update(icon_params)
         redirect_to dashboard_path, notice: "Icon updated successfully!"
       else
@@ -32,7 +32,7 @@ class DashboardController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :dob, :gender, :email,:icon)
+    params.require(:user).permit(:first_name, :last_name, :dob, :gender, :email, :icon)
   end
   def icon_params
     params.require(:user).permit(:icon)

@@ -68,6 +68,6 @@ gem "tailwindcss-rails", "~> 4.0"
 
 gem "tailwindcss-ruby", "~> 4.0"
 
-gem "sidekiq", "~> 7.3"
+gem "sidekiq", "~> 8.0"
 gem 'fiddle'
 
